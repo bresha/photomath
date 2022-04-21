@@ -14,7 +14,7 @@ class Detector:
 
         boundingBoxes = cls.__sortBoundingBoxes(boundingBoxes)
 
-        cropedImages = cls.__cropImages(grayscaleImage, boundingBoxes)
+        cropedImages = cls.__cropImages(inputImage, boundingBoxes)
 
         return cropedImages
 
