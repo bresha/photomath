@@ -12,8 +12,6 @@ class Detector:
 
         boundingBoxes = cls.__getBoundingBoxes(grayscaleImage)
 
-        boundingBoxes = cls.__sortBoundingBoxes(boundingBoxes)
-
         cropedImages = cls.__cropImages(inputImage, boundingBoxes)
 
         return cropedImages
@@ -65,7 +63,16 @@ class Detector:
             minArea = 10
 
             if rectArea > minArea:
+                cropedImageWithCoordinates = {}
+
+                coordinates = (rectX, rectY, rectWidth, rectHeight)
+
+                cropedImageWithCoordinates["coordinates"] = coordinates
+
                 currentCrop = image[rectY : rectY + rectHeight, rectX : rectX + rectWidth]
-                cropedImages.append(currentCrop)
+
+                cropedImageWithCoordinates["image"] = currentCrop
+                
+                cropedImages.append(cropedImageWithCoordinates)
 
         return cropedImages

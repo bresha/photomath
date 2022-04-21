@@ -8,7 +8,8 @@ img = cv2.imread("samples/onetimestwo.jpg")
 cropedImages = Detector.detect(img)
 
 for c in cropedImages:
-    cv2.imshow("crop", c)
+    print(c["coordinates"])
+    cv2.imshow("crop", c["image"])
     cv2.waitKey(0)
 
 cv2.destroyAllWindows()
