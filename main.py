@@ -3,7 +3,7 @@ import cv2
 from detector import Detector
 
 
-img = cv2.imread("samples/oneminustwo.jpg")
+img = cv2.imread("samples/onetimestwo.jpg")
 
 cropedImages = Detector.detect(img)
 
