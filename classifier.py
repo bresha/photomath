@@ -13,11 +13,11 @@ class Classifier:
 
         squaredImage = cls.__squareImage(image)
 
-        resizedImage = cv2.resize(squaredImage, (45, 45), interpolation=cv2.INTER_NEAREST)
+        resizedImage = cv2.resize(squaredImage, (45, 45), interpolation=cv2.INTER_CUBIC)
 
         imageBatch = tf.expand_dims(resizedImage, 0)
 
-        model = keras.models.load_model("model")
+        model = keras.models.load_model("model2")
 
         predictions = model.predict(imageBatch)
 

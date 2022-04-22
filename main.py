@@ -4,7 +4,7 @@ from detector import Detector
 from classifier import Classifier
 
 
-img = cv2.imread("samples/1times2.jpg")
+img = cv2.imread("samples/onetimestwo.jpg")
 
 cropedImages = Detector.detect(img)
 
