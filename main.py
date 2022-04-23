@@ -6,13 +6,16 @@ from classifier import Classifier
 
 img = cv2.imread("samples/onetimestwo.jpg")
 
-cropedImages = Detector.detect(img)
+detector = Detector()
+cropedImages = detector.detect(img)
+
+classifier = Classifier()
 
 for c in cropedImages:
     print(c["coordinates"])
     cv2.imshow("crop", c["image"])
     cv2.waitKey(0)
     image = c["image"]
-    print(Classifier.clasify(c["image"]))
+    print(classifier.clasify(c["image"]))
 
 cv2.destroyAllWindows()

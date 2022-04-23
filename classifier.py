@@ -4,32 +4,32 @@ import tensorflow as tf
 from tensorflow import keras
 
 
-CLASSES = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '-', '*', '/', '(', ')']
+
 
 class Classifier:
-    @classmethod
-    def clasify(cls, image):
+    def __init__(self):
+        self.CLASSES = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '-', '*', '/', '(', ')']
+        self.model = keras.models.load_model("model2")
+
+
+    def clasify(self, image):
         '''Clasifies symbol of image'''
 
-        squaredImage = cls.__squareImage(image)
+        squaredImage = self.__squareImage(image)
 
         resizedImage = cv2.resize(squaredImage, (45, 45), interpolation=cv2.INTER_CUBIC)
 
-        imageBatch = tf.expand_dims(resizedImage, 0)
+        imageBatch = tf.expand_dims(resizedImage, 0)     
 
-        model = keras.models.load_model("model2")
-
-        predictions = model.predict(imageBatch)
+        predictions = self.model.predict(imageBatch)
 
         index = np.argmax(predictions)
 
-        symbol = CLASSES[index]
+        symbol = self.CLASSES[index]
 
         return symbol
 
-
-    @classmethod
-    def __squareImage(cls, image):
+    def __squareImage(self, image):
         height, width, _ = image.shape
 
         dimension = height if height > width else width

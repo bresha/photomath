@@ -3,29 +3,26 @@ import numpy as np
 
 
 class Detector:
-    @classmethod
-    def detect(cls, inputImage):
+    def detect(self, inputImage):
         '''Detects digits and math symbols from input image and returns croped images.
         Expects image to be clean of noise and on white paper'''
 
-        grayscaleImage = cls.__createGrayscaleImage(inputImage)
+        grayscaleImage = self.__createGrayscaleImage(inputImage)
 
-        boundingBoxes = cls.__getBoundingBoxes(grayscaleImage)
+        boundingBoxes = self.__getBoundingBoxes(grayscaleImage)
 
-        cropedImages = cls.__cropImages(inputImage, boundingBoxes)
+        cropedImages = self.__cropImages(inputImage, boundingBoxes)
 
         return cropedImages
 
 
-    @classmethod
-    def __createGrayscaleImage(cls, inputImage):
+    def __createGrayscaleImage(self, inputImage):
         grayscaleImage = cv2.cvtColor(inputImage, cv2.COLOR_BGR2GRAY)
 
         return grayscaleImage
 
 
-    @classmethod
-    def __getBoundingBoxes(cls, image):
+    def __getBoundingBoxes(self, image):
         
 
         threshValue, binaryImage = cv2.threshold(
@@ -43,13 +40,11 @@ class Detector:
         return boundingBoxes
 
 
-    @classmethod
-    def __sortBoundingBoxes(cls, boundingBoxes):
+    def __sortBoundingBoxes(self, boundingBoxes):
         return sorted(boundingBoxes, key=lambda x: x[0])
 
 
-    @classmethod
-    def __cropImages(cls, image, boundingBoxes):
+    def __cropImages(self, image, boundingBoxes):
         cropedImages = []
         
         for box in boundingBoxes:
