@@ -5,7 +5,7 @@ from classifier import Classifier
 from calculator import Calculator
 
 
-expresion = "(20+10)*(10+20)"
+expresion = "-((-(20+10)*(-10+20)*(10-20))/2)" #  -1500
 
 calc = Calculator()
 print(calc.calculate(expresion))
