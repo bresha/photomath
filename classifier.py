@@ -29,6 +29,7 @@ class Classifier:
 
         return symbol
 
+
     def __squareImage(self, image):
         height, width, _ = image.shape
 
