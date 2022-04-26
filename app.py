@@ -36,14 +36,10 @@ def calculate():
 
     symbols = []
     for data in sortedImages:
-        cv2.imshow("image", data["image"])
-        cv2.waitKey(0)
         symbol = classifier.clasify(data["image"])
-        print(symbol)
         symbols.append(symbol)
     
     expresion = ''.join(symbols)
-    print("Expresion: ", expresion)
 
     result = calculator.calculate(expresion)
 
