@@ -9,7 +9,7 @@ from tensorflow import keras
 class Classifier:
     def __init__(self):
         self.CLASSES = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '-', '*', '/', '(', ')']
-        self.model = keras.models.load_model("model2")
+        self.model = keras.models.load_model("model")
 
 
     def clasify(self, image):

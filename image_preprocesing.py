@@ -15,10 +15,9 @@ for directory in dirList:
         image = cv2.imread(imagePath)
         kernel = np.ones((3, 3), np.uint8)
 
-        dilatedImage = cv2.erode(image, kernel, iterations=1)
+        erodedImage = cv2.erode(image, kernel, iterations=1)
 
         folder = os.path.join(dataDir, directory)
 
-        imagePath = folder + "/" + fileName + "eroded" + ".jpg"
-
-        cv2.imwrite(imagePath, dilatedImage)
+        imagePath = folder + "/" + fileName
+        cv2.imwrite(imagePath, erodedImage)
