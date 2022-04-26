@@ -11,7 +11,7 @@ class Calculator:
         result = self.__calculatePostfix()
         self.__stack = []
         self.__temp = []
-        return result
+        return str(result)
 
     
     def __calculatePostfix(self):
@@ -79,8 +79,6 @@ class Calculator:
 
         while self.__temp:
             self.__push(self.__temp.pop())
-        
-        print(self.__stack)
             
                 
     def __hasLessOrEqualPriority(self, operator1, operator2):

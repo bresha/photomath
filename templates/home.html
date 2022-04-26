@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Simple Photomath</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
+</head>
+
+<body>
+
+    <h1>Simple Photomath</h1>
+    <p>Usage:</p>
+    <p>Take a picture of simple mathematical expresion and get calculation</p>
+
+    <button id="start-camera">Start Camera</button>
+    <video id="video" width="320" height="240" autoplay></video>
+    <button id="click-photo">Click Photo</button>
+    <canvas id="canvas" width="320" height="240"></canvas>
+</body>
+
+<script src="{{ url_for('static',filename='scripts/script.js') }}"></script>
+
+</html>
