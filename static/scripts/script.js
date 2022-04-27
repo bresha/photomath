@@ -2,6 +2,7 @@ let camera_button = document.querySelector("#start-camera");
 let video = document.querySelector("#video");
 let click_button = document.querySelector("#click-photo");
 let canvas = document.querySelector("#canvas");
+let result = document.querySelector("#result");
 
 camera_button.addEventListener('click', async function () {
     let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
@@ -27,7 +28,7 @@ async function calculate(strIm) {
         let jsonResult = await response.text();
         jsonResult = JSON.parse(jsonResult);
 
-        console.log(jsonResult)
+        result.textContent = jsonResult;
     }
     catch (error) {
         alert("Error processing the image: " + error);

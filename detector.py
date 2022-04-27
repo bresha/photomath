@@ -7,26 +7,28 @@ class Detector:
         '''Detects digits and math symbols from input image and returns croped images.
         Expects image to be clean of noise and on white paper'''
 
-        grayscaleImage = self.__createGrayscaleImage(inputImage)
+        grayscaleInversedImage = self.__createGrayscaleInversedImage(inputImage)
 
-        boundingBoxes = self.__getBoundingBoxes(grayscaleImage)
+        boundingBoxes = self.__getBoundingBoxes(grayscaleInversedImage)
 
-        cropedImages = self.__cropImages(inputImage, boundingBoxes)
+        cropedImages = self.__cropImages(grayscaleInversedImage, boundingBoxes)
 
         return cropedImages
 
 
-    def __createGrayscaleImage(self, inputImage):
+    def __createGrayscaleInversedImage(self, inputImage):
         grayscaleImage = cv2.cvtColor(inputImage, cv2.COLOR_BGR2GRAY)
 
-        return grayscaleImage
+        inversedImage = cv2.bitwise_not(grayscaleImage)
+
+        return inversedImage
 
 
     def __getBoundingBoxes(self, image):
         
 
         threshValue, binaryImage = cv2.threshold(
-            image, 0, 255, cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
+            image, 0, 255, cv2.THRESH_BINARY+cv2.THRESH_OTSU)
 
         contours, hierarchy = cv2.findContours(
             binaryImage, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
@@ -38,10 +40,6 @@ class Detector:
             boundingBoxes.append(boundRect)
 
         return boundingBoxes
-
-
-    def __sortBoundingBoxes(self, boundingBoxes):
-        return sorted(boundingBoxes, key=lambda x: x[0])
 
 
     def __cropImages(self, image, boundingBoxes):
