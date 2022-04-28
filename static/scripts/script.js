@@ -1,13 +1,12 @@
-let camera_button = document.querySelector("#start-camera");
 let video = document.querySelector("#video");
 let click_button = document.querySelector("#click-photo");
 let canvas = document.querySelector("#canvas");
 let result = document.querySelector("#result");
 
-camera_button.addEventListener('click', async function () {
+async function onLoad() {
     let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
     video.srcObject = stream;
-});
+};
 
 click_button.addEventListener('click', function () {
     canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
@@ -34,3 +33,5 @@ async function calculate(strIm) {
         alert("Error processing the image: " + error);
     }
 }
+
+window.addEventListener('load', onLoad);
