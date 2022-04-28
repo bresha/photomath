@@ -5,8 +5,10 @@ backcall @ file:///home/conda/feedstock_root/build_artifacts/backcall_1592338393
 backports.functools-lru-cache @ file:///home/conda/feedstock_root/build_artifacts/backports.functools_lru_cache_1618230623929/work
 cachetools==5.0.0
 certifi==2021.10.8
+cffi==1.15.0
 charset-normalizer==2.0.12
 click==8.1.2
+cryptography==37.0.1
 debugpy @ file:///tmp/build/80754af9/debugpy_1637091796427/work
 decorator @ file:///home/conda/feedstock_root/build_artifacts/decorator_1641555617451/work
 entrypoints @ file:///home/conda/feedstock_root/build_artifacts/entrypoints_1643888246732/work
@@ -43,6 +45,7 @@ packaging @ file:///home/conda/feedstock_root/build_artifacts/packaging_16372396
 parso @ file:///home/conda/feedstock_root/build_artifacts/parso_1638334955874/work
 pexpect @ file:///home/conda/feedstock_root/build_artifacts/pexpect_1602535608087/work
 pickleshare @ file:///home/conda/feedstock_root/build_artifacts/pickleshare_1602536217715/work
+Pillow==9.1.0
 prompt-toolkit @ file:///home/conda/feedstock_root/build_artifacts/prompt-toolkit_1649130487073/work
 protobuf==3.20.0
 psutil @ file:///tmp/build/80754af9/psutil_1612298023621/work
@@ -50,7 +53,9 @@ ptyprocess @ file:///home/conda/feedstock_root/build_artifacts/ptyprocess_160941
 pure-eval @ file:///home/conda/feedstock_root/build_artifacts/pure_eval_1642875951954/work
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
+pycparser==2.21
 Pygments @ file:///home/conda/feedstock_root/build_artifacts/pygments_1641580240686/work
+pyOpenSSL==22.0.0
 pyparsing @ file:///home/conda/feedstock_root/build_artifacts/pyparsing_1649603503565/work
 python-dateutil @ file:///home/conda/feedstock_root/build_artifacts/python-dateutil_1626286286081/work
 pyzmq==19.0.2
