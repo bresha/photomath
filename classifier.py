@@ -17,9 +17,6 @@ class Classifier:
 
         image[image < 150] = 0
 
-        cv2.imshow("image", image)
-        cv2.waitKey(0)
-
         squaredImage = self.__squareImage(image)
 
         resizedImage = cv2.resize(squaredImage, (45, 45), interpolation=cv2.INTER_CUBIC)
@@ -31,7 +28,7 @@ class Classifier:
         index = np.argmax(predictions)
 
         symbol = self.CLASSES[index]
-        print(symbol)
+
         return symbol
 
 
