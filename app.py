@@ -14,8 +14,7 @@ calculator = Calculator()
 
 def decodeImage(name):
     imStr = request.form[name]
-    imStr = imStr.split(",")[1] #drop prefix "data:image/jpeg;base64,"
-    # data = BytesIO(base64.b64decode(imStr))
+    imStr = imStr.split(",")[1]
     nparr = np.fromstring(base64.b64decode(imStr), np.uint8)
     img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
     return img
