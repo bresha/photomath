@@ -28,7 +28,7 @@ async function calculate(strIm) {
         let jsonResult = await response.text();
         jsonResult = JSON.parse(jsonResult);
 
-        result.textContent = jsonResult;
+        result.textContent = jsonResult.result;
     }
     catch (error) {
         alert("Error processing the image: " + error);

@@ -41,6 +41,9 @@ def calculate():
     
     expresion = ''.join(symbols)
 
-    result = calculator.calculate(expresion)
+    try:
+        result = { "result": calculator.calculate(expresion) }
+    except:
+        result = { "result": "Unable to calculate" }
 
     return result
