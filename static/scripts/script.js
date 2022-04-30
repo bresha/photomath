@@ -4,7 +4,11 @@ let canvas = document.querySelector("#canvas");
 let result = document.querySelector("#result");
 
 async function onLoad() {
-    let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+    let stream = await navigator.mediaDevices.getUserMedia({
+        video: {
+            facingMode: 'environment'
+        }, audio: false
+    });
     video.srcObject = stream;
 };
 
