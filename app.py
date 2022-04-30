@@ -11,7 +11,6 @@ import os
 
 detector = Detector()
 classifier = Classifier()
-calculator = Calculator()
 
 def decodeImage(name):
     imStr = request.form[name]
@@ -42,6 +41,7 @@ def calculate():
     expresion = ''.join(symbols)
 
     try:
+        calculator = Calculator()
         result = { "result": calculator.calculate(expresion) }
     except:
         result = { "result": "Unable to calculate" }

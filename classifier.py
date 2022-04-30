@@ -21,9 +21,10 @@ class Classifier:
 
         resizedImage = cv2.resize(squaredImage, (45, 45), interpolation=cv2.INTER_CUBIC)
 
-        imageBatch = tf.expand_dims(resizedImage, 0)     
-
-        predictions = self.model.predict(imageBatch)
+        imageBatch = tf.expand_dims(resizedImage, 0)
+        
+        with tf.device('/cpu:0'):
+            predictions = self.model.predict(imageBatch)
 
         index = np.argmax(predictions)
 
